@@ -52,7 +52,7 @@ public class GoldenMasterTest {
         return new File(FOLDER, "seed-" + seed + ".txt");
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "seed-{0}.txt")
     @MethodSource("seeds")
     void testSeedVersusFile(int seed) throws IOException {
         String actualOutput = runForSeed(seed);

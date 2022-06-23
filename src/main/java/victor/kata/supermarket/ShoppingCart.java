@@ -5,7 +5,7 @@ import java.util.*;
 public class ShoppingCart {
 
     private final List<ProductQuantity> items = new ArrayList<>();
-    Map<Product, Double> productQuantities = new LinkedHashMap<>(); // preserve order for discounts to have the same order as captured
+    Map<Product, Double> productQuantities = new HashMap<>(); // preserve order for discounts to have the same order as captured
 
     List<ProductQuantity> getItems() {
         return new ArrayList<>(items);

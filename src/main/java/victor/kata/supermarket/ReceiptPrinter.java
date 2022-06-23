@@ -1,5 +1,7 @@
 package victor.kata.supermarket;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Locale;
 
 public class ReceiptPrinter {
@@ -20,7 +22,9 @@ public class ReceiptPrinter {
             String receiptItem = presentReceiptItem(item);
             result.append(receiptItem);
         }
-        for (Discount discount : receipt.getDiscounts()) {
+        List<Discount> discounts = receipt.getDiscounts();
+        discounts.sort(Comparator.comparing(d -> d.getProduct().getName()));
+        for (Discount discount : discounts) {
             String discountPresentation = presentDiscount(discount);
             result.append(discountPresentation);
         }
